@@ -19,6 +19,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0-M1'
     // https://mvnrepository.com/artifact/jivesoftware/smack
     compile group: 'jivesoftware', name: 'smack', version: '3.1.0'
+    compile group: 'jivesoftware', name: 'smackx', version: '3.1.0'
     compile name: 'objenesis-1.0'
     compile name: 'windowlicker-core-DEV'
     compile name: 'windowlicker-swing-DEV'
@@ -31,5 +32,3 @@ test {
 group = 'io.github.toethan'
 version = '1.0'
 sourceCompatibility = '1.8'
-
-//ant.importBuild 'build.xml'
