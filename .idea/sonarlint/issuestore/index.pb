@@ -23,3 +23,13 @@ n
 >src/main/java/auctionsniper/xmpp/AuctionMessageTranslator.java,f\7\f7334b07289a1edfd6ae67f0cdcf76392f8dee77
 d
 4src/test/java/unit/AuctionMessageTranslatorTest.java,2\e\2e0bdc59c3a315d868346fee08af9036193e68ea
+_
+/src/main/java/auctionsniper/SniperListener.java,3\1\31acaedd0d5f724567774c530e05c75469a9338c
+e
+5src/main/java/auctionsniper/AuctionEventListener.java,3\a\3ad5512bbb138d56a6fe9de5685e746c2413f330
+^
+.src/main/java/auctionsniper/AuctionSniper.java,f\c\fcb60dd99db1a8ad285bf2d84e978d3ba02c83e5
+X
+(src/main/java/auctionsniper/Auction.java,8\8\88d91399750e511de78cfe9a3f2c6bb75ef353dd
+Y
+)src/test/java/unit/AuctionSniperTest.java,8\a\8aed4502a4be65fac789987591baf55090eb94ed
