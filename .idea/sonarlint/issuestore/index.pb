@@ -19,3 +19,7 @@ U
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 ;
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
+n
+>src/main/java/auctionsniper/xmpp/AuctionMessageTranslator.java,f\7\f7334b07289a1edfd6ae67f0cdcf76392f8dee77
+d
+4src/test/java/unit/AuctionMessageTranslatorTest.java,2\e\2e0bdc59c3a315d868346fee08af9036193e68ea
