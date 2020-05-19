@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unit.AuctionSniperTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-19T04:57:39" hostname="REVISION-PC" time="0.039">
-  <properties/>
-  <testcase name="bidsHigherAndReportsBiddingWhenNewPriceArrives()" classname="unit.AuctionSniperTest" time="0.037"/>
-  <testcase name="reportsLostWhenAuctionCloses()" classname="unit.AuctionSniperTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
