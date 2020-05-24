@@ -24,6 +24,7 @@ public class Main {
 
     public static final String JOIN_COMMAND_FORMAT = "SOLVersion: 1.1; Command: JOIN;";
     public static final String BID_COMMAND_FORMAT = "SOLVersion: 1.1; Command: BID; Price: %d;";
+    public static final String SNIPER_ID = "sniper";
 
     private MainWindow ui;
     private Chat notToBeGCd;
@@ -47,7 +48,9 @@ public class Main {
         Auction auction = new XMPPAuction(chat);
 
         chat.addMessageListener(
-                new AuctionMessageTranslator(new AuctionSniper(auction, new SniperStateDisplayer())));
+                new AuctionMessageTranslator(
+                        connection.getUser(),
+                        new AuctionSniper(auction, new SniperStateDisplayer())));
 
         auction.join();
     }
@@ -104,6 +107,11 @@ public class Main {
     }
 
     public class SniperStateDisplayer implements SniperListener {
+
+        @Override
+        public void sniperWon() {
+            showStatus(MainWindow.STATUS_WON);
+        }
 
         @Override
         public void sniperLost() {

@@ -43,4 +43,11 @@ public class ApplicationRunner {
         }
     }
 
+    public void hasShownSniperIsWinning() {
+        driver.showSniperStatus(STATUS_WINNING);
+    }
+
+    public void showSniperHasWonAuction() {
+        driver.showSniperStatus(STATUS_WON);
+    }
 }
