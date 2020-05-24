@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unit.AuctionSniperTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-05-24T17:31:02" hostname="REVISION-PC" time="0.136">
+<testsuite name="unit.AuctionSniperTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-05-24T17:44:50" hostname="REVISION-PC" time="0.006">
   <properties/>
-  <testcase name="reportsLostIfAuctionClosesWhenBidding()" classname="unit.AuctionSniperTest" time="0.064"/>
-  <testcase name="reportsLostWhenAuctionClosesImmediately()" classname="unit.AuctionSniperTest" time="0.015"/>
-  <testcase name="bidsHigherAndReportsBiddingWhenNewPriceArrives()" classname="unit.AuctionSniperTest" time="0.025"/>
-  <testcase name="reportsIsWinningWhenCurrentPriceComesFromSniper()" classname="unit.AuctionSniperTest" time="0.019"/>
+  <testcase name="reportsLostIfAuctionClosesWhenBidding()" classname="unit.AuctionSniperTest" time="0.002"/>
+  <testcase name="reportsLostWhenAuctionClosesImmediately()" classname="unit.AuctionSniperTest" time="0.0"/>
+  <testcase name="bidsHigherAndReportsBiddingWhenNewPriceArrives()" classname="unit.AuctionSniperTest" time="0.001"/>
+  <testcase name="reportsIsWinningWhenCurrentPriceComesFromSniper()" classname="unit.AuctionSniperTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
