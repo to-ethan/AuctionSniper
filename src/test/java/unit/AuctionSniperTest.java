@@ -14,7 +14,7 @@ public class AuctionSniperTest {
     private final AuctionSniper sniper = new AuctionSniper(auction, sniperListener);
 
     @Test
-    public void reportsLostWhenAuctionClosesImmediately() {
+    public void reportsLostIfAuctionClosesImmediately() {
         sniper.auctionClosed();
 
         verify(sniperListener, times(1)).sniperLost();
@@ -27,6 +27,14 @@ public class AuctionSniperTest {
 
         // TODO: Validate bidding state of sniper (p. 145)
         verify(sniperListener, atLeastOnce()).sniperLost();
+    }
+
+    @Test
+    public void reportsWonIfAuctionClosesWhenWinning() {
+        sniper.currentPrice(123, 45, AuctionEventListener.PriceSource.FromSniper);
+        sniper.auctionClosed();
+
+        verify(sniperListener, times(1)).sniperWon();
     }
 
     @Test

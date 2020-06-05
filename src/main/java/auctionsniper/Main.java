@@ -39,6 +39,10 @@ public class Main {
                 args[ARG_ITEM_ID]);
     }
 
+    private void startUserInterface() throws Exception {
+        SwingUtilities.invokeAndWait(() -> ui = new MainWindow());
+    }
+
     private void joinAuction(XMPPConnection connection, String itemId) throws XMPPException {
         disconnectWhenUICloses(connection);
 
@@ -77,10 +81,6 @@ public class Main {
                 connection.getServiceName());
     }
 
-    private void startUserInterface() throws Exception {
-        SwingUtilities.invokeAndWait(() -> ui = new MainWindow());
-    }
-
     public static class XMPPAuction implements Auction {
         private final Chat chat;
 
@@ -116,13 +116,11 @@ public class Main {
         @Override
         public void sniperLost() {
             showStatus(MainWindow.STATUS_LOST);
-
         }
 
         @Override
         public void sniperBidding() {
             showStatus(MainWindow.STATUS_BIDDING);
-
         }
 
         @Override
