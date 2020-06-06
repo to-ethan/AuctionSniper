@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unit.ui.SnipersTableModelTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-06T01:37:21" hostname="REVISION-PC" time="0.009">
+<testsuite name="unit.ui.SnipersTableModelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-06-06T03:23:18" hostname="REVISION-PC" time="0.015">
   <properties/>
-  <testcase name="setsSniperValuesInColumn()" classname="unit.ui.SnipersTableModelTest" time="0.008"/>
-  <testcase name="hasEnoughColumns()" classname="unit.ui.SnipersTableModelTest" time="0.0"/>
+  <testcase name="setsSniperValuesInColumn()" classname="unit.ui.SnipersTableModelTest" time="0.013"/>
+  <testcase name="setUpColumnHeadings()" classname="unit.ui.SnipersTableModelTest" time="0.001"/>
+  <testcase name="hasEnoughColumns()" classname="unit.ui.SnipersTableModelTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,8 +1,11 @@
 package endtoend;
 
 import auctionsniper.Main;
+import auctionsniper.SniperState;
+import auctionsniper.ui.MainWindow;
 
 import static auctionsniper.ui.MainWindow.*;
+import static auctionsniper.ui.SnipersTableModel.textFor;
 import static endtoend.FakeAuctionServer.XMPP_HOSTNAME;
 
 public class ApplicationRunner {
@@ -29,19 +32,21 @@ public class ApplicationRunner {
         thread.setDaemon(true);
         thread.start();
         driver = new AuctionSniperDriver(1000);
-        //driver.showSniperStatus(itemId, 1000, 1000, STATUS_JOINING);
+        driver.hasTitle(MainWindow.APPLICATION_TITLE);
+        driver.hasColumnTitles();
+        driver.showSniperStatus("", 0, 0, textFor(SniperState.JOINING));
     }
 
     public void hasShownSniperIsBidding(int lastPrice, int lastBid) {
         driver.showSniperStatus(itemId, lastPrice, lastBid, STATUS_BIDDING);
     }
 
-    public void showSniperHasLostAuction(int winningBid) {
-        driver.showSniperStatus(itemId, winningBid, winningBid, STATUS_LOST);
-    }
-
     public void hasShownSniperIsWinning(int winningBid) {
         driver.showSniperStatus(itemId, winningBid, winningBid, STATUS_WINNING);
+    }
+
+    public void showSniperHasLostAuction(int lastPrice, int lastBid) {
+        driver.showSniperStatus(itemId, lastPrice, lastBid, STATUS_LOST);
     }
 
     public void showSniperHasWonAuction(int lastPrice) {

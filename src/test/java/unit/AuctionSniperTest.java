@@ -3,19 +3,21 @@ package unit;
 import auctionsniper.*;
 import org.junit.jupiter.api.Test;
 
+import static auctionsniper.SniperState.WINNING;
 import static endtoend.AuctionSniperEndToEndTest.ITEM_ID;
 import static org.mockito.Mockito.*;
 
 public class AuctionSniperTest {
     private final Auction auction = mock(Auction.class);
     private final SniperListener sniperListener = mock(SniperListener.class);
-    private final AuctionSniper sniper = new AuctionSniper(auction, sniperListener, ITEM_ID);
+    private final AuctionSniper sniper = new AuctionSniper(ITEM_ID, auction, sniperListener);
 
     @Test
     public void reportsLostIfAuctionClosesImmediately() {
         sniper.auctionClosed();
 
-        verify(sniperListener, times(1)).sniperLost();
+        verify(sniperListener, times(1)).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, 0, 0, SniperState.LOST));
     }
 
     @Test
@@ -24,7 +26,9 @@ public class AuctionSniperTest {
         sniper.auctionClosed();
 
         // TODO: Validate bidding state of sniper (p. 145)
-        verify(sniperListener, atLeastOnce()).sniperLost();
+//        verify(sniperListener, atLeastOnce()).sniperLost();
+        verify(sniperListener, atLeastOnce()).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, 123,168, SniperState.LOST));
     }
 
     @Test
@@ -32,7 +36,8 @@ public class AuctionSniperTest {
         sniper.currentPrice(123, 45, AuctionEventListener.PriceSource.FromSniper);
         sniper.auctionClosed();
 
-        verify(sniperListener, times(1)).sniperWon();
+        verify(sniperListener, times(1)).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, 123, 123, SniperState.WON));
     }
 
     @Test
@@ -44,14 +49,17 @@ public class AuctionSniperTest {
         sniper.currentPrice(price, increment, AuctionEventListener.PriceSource.FromOtherBidder);
 
         verify(auction, times(1)).bid(price + increment);
-        verify(sniperListener, atLeast(1)).sniperBidding(new SniperState(ITEM_ID, price, bid));
+        verify(sniperListener, atLeast(1)).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, price, bid, SniperState.BIDDING));
     }
 
     @Test
     public void reportsIsWinningWhenCurrentPriceComesFromSniper() {
-        sniper.currentPrice(123, 45, AuctionEventListener.PriceSource.FromSniper);
+        sniper.currentPrice(123, 12, AuctionEventListener.PriceSource.FromOtherBidder);
+        sniper.currentPrice(135, 45, AuctionEventListener.PriceSource.FromSniper);
 
-        verify(sniperListener, atLeastOnce()).sniperWinning();
+        verify(sniperListener, atLeastOnce()).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, 135, 135, WINNING));
     }
 
 
