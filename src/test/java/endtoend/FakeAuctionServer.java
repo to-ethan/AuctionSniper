@@ -75,7 +75,6 @@ public class FakeAuctionServer {
         return itemId;
     }
 
-
     public class SingleMessageListener implements MessageListener {
         private final ArrayBlockingQueue<Message> messages = new ArrayBlockingQueue<Message>(1);
 

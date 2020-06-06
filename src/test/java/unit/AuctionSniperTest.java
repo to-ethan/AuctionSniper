@@ -1,17 +1,15 @@
 package unit;
 
-import auctionsniper.Auction;
-import auctionsniper.AuctionEventListener;
-import auctionsniper.AuctionSniper;
-import auctionsniper.SniperListener;
+import auctionsniper.*;
 import org.junit.jupiter.api.Test;
 
+import static endtoend.AuctionSniperEndToEndTest.ITEM_ID;
 import static org.mockito.Mockito.*;
 
 public class AuctionSniperTest {
     private final Auction auction = mock(Auction.class);
     private final SniperListener sniperListener = mock(SniperListener.class);
-    private final AuctionSniper sniper = new AuctionSniper(auction, sniperListener);
+    private final AuctionSniper sniper = new AuctionSniper(auction, sniperListener, ITEM_ID);
 
     @Test
     public void reportsLostIfAuctionClosesImmediately() {
@@ -41,11 +39,12 @@ public class AuctionSniperTest {
     public void bidsHigherAndReportsBiddingWhenNewPriceArrives() {
         final int price = 1001;
         final int increment = 25;
+        final int bid = price + increment;
 
         sniper.currentPrice(price, increment, AuctionEventListener.PriceSource.FromOtherBidder);
 
         verify(auction, times(1)).bid(price + increment);
-        verify(sniperListener, atLeast(1)).sniperBidding();
+        verify(sniperListener, atLeast(1)).sniperBidding(new SniperState(ITEM_ID, price, bid));
     }
 
     @Test

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unit.AuctionSniperTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-06-05T21:44:51" hostname="REVISION-PC" time="0.064">
+<testsuite name="unit.AuctionSniperTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-06-06T01:37:21" hostname="REVISION-PC" time="0.006">
   <properties/>
-  <testcase name="reportsWonIfAuctionClosesWhenWinning()" classname="unit.AuctionSniperTest" time="0.053"/>
-  <testcase name="reportsLostIfAuctionClosesWhenBidding()" classname="unit.AuctionSniperTest" time="0.004"/>
-  <testcase name="bidsHigherAndReportsBiddingWhenNewPriceArrives()" classname="unit.AuctionSniperTest" time="0.004"/>
+  <testcase name="reportsWonIfAuctionClosesWhenWinning()" classname="unit.AuctionSniperTest" time="0.0"/>
+  <testcase name="reportsLostIfAuctionClosesWhenBidding()" classname="unit.AuctionSniperTest" time="0.002"/>
+  <testcase name="bidsHigherAndReportsBiddingWhenNewPriceArrives()" classname="unit.AuctionSniperTest" time="0.0"/>
   <testcase name="reportsIsWinningWhenCurrentPriceComesFromSniper()" classname="unit.AuctionSniperTest" time="0.0"/>
   <testcase name="reportsLostIfAuctionClosesImmediately()" classname="unit.AuctionSniperTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
