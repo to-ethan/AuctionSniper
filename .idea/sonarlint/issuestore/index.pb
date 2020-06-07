@@ -33,3 +33,13 @@ X
 (src/main/java/auctionsniper/Auction.java,8\8\88d91399750e511de78cfe9a3f2c6bb75ef353dd
 Y
 )src/test/java/unit/AuctionSniperTest.java,8\a\8aed4502a4be65fac789987591baf55090eb94ed
+\
+,src/main/java/auctionsniper/SniperState.java,7\a\7a68d03f6b964d77d56ee3f17ea5a2264061c3ba
+Z
+*src/main/java/auctionsniper/ui/Column.java,6\c\6c397c91369356d0812a599449fb6b9ad11b985a
+_
+/src/main/java/auctionsniper/SniperSnapshot.java,9\4\947c6cb40a81a88b3c4215e9da42058660e7ec47
+e
+5src/main/java/auctionsniper/ui/SnipersTableModel.java,8\e\8e4feb8568f81dba3df399fec6da3ae1937484fe
+`
+0src/test/java/unit/ui/SnipersTableModelTest.java,6\b\6b81ff91700e5123a16ab7d5e1fbe5c70a3e86cc

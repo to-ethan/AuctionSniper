@@ -46,4 +46,8 @@ public class SniperSnapshot {
     public int hashCode() {
         return Objects.hash(itemId, lastPrice, lastBid, state);
     }
+
+    public boolean isForSameItemAs(SniperSnapshot sniperSnapshot) {
+        return itemId.equals(sniperSnapshot.itemId);
+    }
 }

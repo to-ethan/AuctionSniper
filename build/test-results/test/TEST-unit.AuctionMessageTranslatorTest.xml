@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="unit.AuctionMessageTranslatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-06-06T03:23:18" hostname="REVISION-PC" time="0.034">
-  <properties/>
-  <testcase name="notifiesBidDetailsWhenCurrentPriceMessageReceivedFromSniper()" classname="unit.AuctionMessageTranslatorTest" time="0.032"/>
-  <testcase name="notifiesAuctionClosedWhenCloseMessageReceived()" classname="unit.AuctionMessageTranslatorTest" time="0.0"/>
-  <testcase name="notifiesBidDetailsWhenCurrentPriceMessageReceivedFromOtherBidder()" classname="unit.AuctionMessageTranslatorTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -12,18 +12,13 @@ public class ApplicationRunner {
     public static final String SNIPER_ID = "sniper";
     public static final String SNIPER_PASSWORD = "sniper";
     private AuctionSniperDriver driver;
-    private String itemId;
 
-    public void startBiddingIn(final FakeAuctionServer auction) {
-        itemId = auction.getItemId();
-
+    public void startBiddingIn(final FakeAuctionServer... auctions) {
         Thread thread = new Thread("Test Application") {
             @Override
             public void run() {
                 try {
-                    Main.main(new String[]{
-                            XMPP_HOSTNAME, SNIPER_ID, SNIPER_PASSWORD, auction.getItemId()
-                    });
+                    Main.main(arguments(auctions));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -34,23 +29,37 @@ public class ApplicationRunner {
         driver = new AuctionSniperDriver(1000);
         driver.hasTitle(MainWindow.APPLICATION_TITLE);
         driver.hasColumnTitles();
-        driver.showSniperStatus("", 0, 0, textFor(SniperState.JOINING));
+
+        for (FakeAuctionServer auction : auctions) {
+            driver.showSniperStatus(auction.getItemId(), 0, 0, textFor(SniperState.JOINING));
+        }
     }
 
-    public void hasShownSniperIsBidding(int lastPrice, int lastBid) {
-        driver.showSniperStatus(itemId, lastPrice, lastBid, STATUS_BIDDING);
+    protected static String[] arguments(FakeAuctionServer... auctions) {
+        String[] arguments = new String[auctions.length + 3];
+        arguments[0] = XMPP_HOSTNAME;
+        arguments[1] = SNIPER_ID;
+        arguments[2] = SNIPER_PASSWORD;
+        for (int i = 0; i < auctions.length; i++) {
+            arguments[i + 3] = auctions[i].getItemId();
+        }
+        return arguments;
     }
 
-    public void hasShownSniperIsWinning(int winningBid) {
-        driver.showSniperStatus(itemId, winningBid, winningBid, STATUS_WINNING);
+    public void hasShownSniperIsBidding(FakeAuctionServer auction, int lastPrice, int lastBid) {
+        driver.showSniperStatus(auction.getItemId(), lastPrice, lastBid, STATUS_BIDDING);
     }
 
-    public void showSniperHasLostAuction(int lastPrice, int lastBid) {
-        driver.showSniperStatus(itemId, lastPrice, lastBid, STATUS_LOST);
+    public void hasShownSniperIsWinning(FakeAuctionServer auction, int winningBid) {
+        driver.showSniperStatus(auction.getItemId(), winningBid, winningBid, STATUS_WINNING);
     }
 
-    public void showSniperHasWonAuction(int lastPrice) {
-        driver.showSniperStatus(itemId, lastPrice, lastPrice, STATUS_WON);
+    public void showSniperHasLostAuction(FakeAuctionServer auction, int lastPrice, int lastBid) {
+        driver.showSniperStatus(auction.getItemId(), lastPrice, lastBid, STATUS_LOST);
+    }
+
+    public void showSniperHasWonAuction(FakeAuctionServer auction, int lastPrice) {
+        driver.showSniperStatus(auction.getItemId(), lastPrice, lastPrice, STATUS_WON);
     }
 
     public void stop() {

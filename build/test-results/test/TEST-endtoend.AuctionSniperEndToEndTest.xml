@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="endtoend.AuctionSniperEndToEndTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-06-06T03:23:14" hostname="REVISION-PC" time="3.254">
-  <properties/>
-  <testcase name="sniperMakesAHigherBidButLoses()" classname="endtoend.AuctionSniperEndToEndTest" time="1.813"/>
-  <testcase name="sniperJoinsAuctionUntilAuctionCloses()" classname="endtoend.AuctionSniperEndToEndTest" time="0.666"/>
-  <testcase name="sniperWinsAnAuctionByBiddingHigher()" classname="endtoend.AuctionSniperEndToEndTest" time="0.774"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

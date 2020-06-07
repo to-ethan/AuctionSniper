@@ -14,17 +14,19 @@ public class MainWindow extends JFrame {
     public static final String STATUS_BIDDING = "Bidding";
     public static final String STATUS_WINNING = "Winning";
 
-    private final SnipersTableModel snipers = new SnipersTableModel();
     public static final String APPLICATION_TITLE = "Auction Sniper";
     private static final Dimension WINDOW_SIZE = new Dimension(500, 600);
     private static final String SNIPERS_TABLE_NAME = "Snipers Table";
 
+    private final SnipersTableModel snipers;
+
     public MainWindow(SnipersTableModel snipers) {
         super(APPLICATION_TITLE);
+        this.snipers = snipers;
         setName(MAIN_WINDOW_NAME);
         fillContentPane(makeSnipersTable());
+        pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(WINDOW_SIZE);
         setVisible(true);
     }
 
@@ -41,6 +43,6 @@ public class MainWindow extends JFrame {
     }
 
     public void sniperStatusChanged(SniperSnapshot snapshot) {
-        snipers.sniperStatusChanged(snapshot);
+        snipers.sniperStateChanged(snapshot);
     }
 }
