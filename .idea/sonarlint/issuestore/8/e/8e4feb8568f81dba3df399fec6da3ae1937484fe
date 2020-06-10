@@ -1,12 +1,12 @@
 
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Öìøâûÿÿÿÿ8Úş±İ¨.
-M
-java:S1948"+Make "snapshots" transient or serializable.(Öìøâûÿÿÿÿ8Úş±İ¨.
 r	java:S116"VRename this field "STARTING_UP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾øê8Öİ¨.
 g
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ü†ïÉüÿÿÿÿ8Öİ¨.
-J
-java:S1948"-Make "STARTING_UP" transient or serializable.(¾øê8Öİ¨.
+M
+java:S1948"+Make "snapshots" transient or serializable.(Öìøâûÿÿÿÿ8Úş±İ¨.
 L
 java:S1068"/Remove this unused "STARTING_UP" private field.(¾øê8é¸²İ¨.
+J
+java:S1948"-Make "STARTING_UP" transient or serializable.(¾øê8Öİ¨.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Öìøâûÿÿÿÿ8Úş±İ¨.
