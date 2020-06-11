@@ -1,5 +1,6 @@
 package unit.ui;
 
+import auctionsniper.AuctionSniper;
 import auctionsniper.SniperSnapshot;
 import auctionsniper.ui.Column;
 import auctionsniper.ui.SnipersTableModel;
@@ -11,13 +12,15 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class SnipersTableModelTest {
     private TableModelListener listener = mock(TableModelListener.class);
     private final SnipersTableModel model = new SnipersTableModel();
+    private final AuctionSniper sniper = new AuctionSniper("item 0", null);
 
     @BeforeEach
     public void attachModelListener() {
@@ -31,16 +34,14 @@ public class SnipersTableModelTest {
 
     @Test
     public void setsSniperValuesInColumn() {
-        SniperSnapshot joining = SniperSnapshot.joining("item id");
-        SniperSnapshot bidding = joining.bidding(555, 666);
+        SniperSnapshot bidding = sniper.getSnapshot().bidding(555, 666);
 
-        model.addSniper(joining);
+        model.addSniper(sniper);
         model.sniperStateChanged(bidding);
 
+        // TODO: Change matcher to match only insertion events.
+        verify(listener, times(2)).tableChanged(any(TableModelEvent.class));
         assertRowMatchesSnapshot(0, bidding);
-
-        // TODO: Replace any TableModelEvent with AnyInsertionEvent, the code is equivalent since we check for two events.
-        verify(listener, times(2)).tableChanged((TableModelEvent) any());
     }
 
     @Test
@@ -52,21 +53,20 @@ public class SnipersTableModelTest {
 
     @Test
     public void notifiesListenersWhenAddingASniper() {
-        SniperSnapshot joining = SniperSnapshot.joining("item-123");
-
         assertEquals(0, model.getRowCount());
 
-        model.addSniper(joining);
+        model.addSniper(sniper);
 
         assertEquals(1, model.getRowCount());
-        assertRowMatchesSnapshot(0, joining);
+        assertRowMatchesSnapshot(0, sniper.getSnapshot());
         verify(listener, times(1)).tableChanged(withAnInsertionAtRow(0));
     }
 
     @Test public void
     holdsSnipersInAdditionOrder() {
-        model.addSniper(SniperSnapshot.joining("item 0"));
-        model.addSniper(SniperSnapshot.joining("item 1"));
+        AuctionSniper sniper2 = new AuctionSniper("item 1", null);
+        model.addSniper(sniper);
+        model.addSniper(sniper2);
         assertEquals("item 0", cellValue(0, Column.ITEM_IDENTIFIER));
         assertEquals("item 1", cellValue(1, Column.ITEM_IDENTIFIER));
     }

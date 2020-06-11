@@ -1,6 +1,6 @@
 
-L
-java:S1068"/Remove this unused "WINDOW_SIZE" private field.(üĞìÍ8Â‚Ãá¨.
-]	java:S110"<This class has 6 parents which is greater than 5 authorized.(Ü¡§Ãùÿÿÿÿ8ŸÏñ¦ .
+J
+java:S16046"(Make this anonymous inner class a lambda(¾©’Âüÿÿÿÿ8 Ø’ï©.
+]	java:S110"<This class has 6 parents which is greater than 5 authorized.(Ü¡§Ãùÿÿÿÿ8ŸÏñ¦ .
 k
-java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8…Œ’§ .
+java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8…Œ’§ .

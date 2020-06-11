@@ -1,6 +1,7 @@
 package unit;
 
 import auctionsniper.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static auctionsniper.SniperState.WINNING;
@@ -10,7 +11,13 @@ import static org.mockito.Mockito.*;
 public class AuctionSniperTest {
     private final Auction auction = mock(Auction.class);
     private final SniperListener sniperListener = mock(SniperListener.class);
-    private final AuctionSniper sniper = new AuctionSniper(ITEM_ID, auction, sniperListener);
+    private AuctionSniper sniper;
+
+    @BeforeEach
+    public void initializeSniper() {
+        sniper = new AuctionSniper(ITEM_ID, auction);
+        sniper.addSniperListener(sniperListener);
+    }
 
     @Test
     public void reportsLostIfAuctionClosesImmediately() {
@@ -26,7 +33,6 @@ public class AuctionSniperTest {
         sniper.auctionClosed();
 
         // TODO: Validate bidding state of sniper (p. 145)
-//        verify(sniperListener, atLeastOnce()).sniperLost();
         verify(sniperListener, atLeastOnce()).sniperStateChanged(
                 new SniperSnapshot(ITEM_ID, 123,168, SniperState.LOST));
     }
