@@ -26,7 +26,6 @@ public class FakeAuctionServer {
 
     public FakeAuctionServer(String itemId) {
         this.itemId = itemId;
-        ConnectionConfiguration config;
         this.connection = new XMPPConnection(XMPP_HOSTNAME);
     }
 

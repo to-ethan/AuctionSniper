@@ -36,7 +36,7 @@ public class SnipersTableModelTest {
     public void setsSniperValuesInColumn() {
         SniperSnapshot bidding = sniper.getSnapshot().bidding(555, 666);
 
-        model.addSniper(sniper);
+        model.sniperAdded(sniper);
         model.sniperStateChanged(bidding);
 
         // TODO: Change matcher to match only insertion events.
@@ -55,7 +55,7 @@ public class SnipersTableModelTest {
     public void notifiesListenersWhenAddingASniper() {
         assertEquals(0, model.getRowCount());
 
-        model.addSniper(sniper);
+        model.sniperAdded(sniper);
 
         assertEquals(1, model.getRowCount());
         assertRowMatchesSnapshot(0, sniper.getSnapshot());
@@ -65,8 +65,8 @@ public class SnipersTableModelTest {
     @Test public void
     holdsSnipersInAdditionOrder() {
         AuctionSniper sniper2 = new AuctionSniper("item 1", null);
-        model.addSniper(sniper);
-        model.addSniper(sniper2);
+        model.sniperAdded(sniper);
+        model.sniperAdded(sniper2);
         assertEquals("item 0", cellValue(0, Column.ITEM_IDENTIFIER));
         assertEquals("item 1", cellValue(1, Column.ITEM_IDENTIFIER));
     }

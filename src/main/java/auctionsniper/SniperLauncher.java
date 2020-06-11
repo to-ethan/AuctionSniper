@@ -1,11 +1,6 @@
 package auctionsniper;
 
-import auctionsniper.ui.SnipersTableModel;
-
-import java.util.ArrayList;
-
 public class SniperLauncher implements UserRequestListener {
-    private final ArrayList<Auction> notToBeGCd = new ArrayList<Auction>();
     private final AuctionHouse auctionHouse;
     private final SniperCollector collector;
 
