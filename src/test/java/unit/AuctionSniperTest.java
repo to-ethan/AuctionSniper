@@ -124,6 +124,16 @@ public class AuctionSniperTest {
         verify(sniperListener).sniperStateChanged(
                 new SniperSnapshot(ITEM_ID, 123, 0, WINNING));
 
-        verify(sniperListener).sniperStateChanged(new SniperSnapshot(ITEM_ID, 2000, 0, LOSING));
+        verify(sniperListener).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, 2000, 0, LOSING));
+    }
+
+    @Test
+    public void reportsFailedIfAuctionFailsWhenBidding() {
+        sniper.currentPrice(123, 45, FromOtherBidder);
+        sniper.auctionFailed();
+
+        verify(sniperListener).sniperStateChanged(
+                new SniperSnapshot(ITEM_ID, 0,0,FAILED));
     }
 }

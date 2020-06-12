@@ -69,3 +69,15 @@ b
 2src/main/java/auctionsniper/PortfolioListener.java,4\d\4d54caae2f402f46b057c076c976c83731eec0a8
 `
 0src/main/java/auctionsniper/SniperPortfolio.java,5\0\50511c6acdf4835177795b4cd5f2bf755db171c1
+U
+%src/main/java/auctionsniper/Item.java,b\d\bd25ce836d7fc648b63b3f02909de34023517ade
+\
+,src/test/java/endtoend/AuctionLogDriver.java,a\e\aee435cda1c4169a4ba99c363f9dfea5fa55a113
+i
+9src/main/java/auctionsniper/xmpp/XMPPFailureReporter.java,d\2\d2831242434b918d4822837d38a971e32f3fac10
+p
+@src/main/java/auctionsniper/xmpp/LoggingXMPPFailureReporter.java,1\1\1111e77807c93f56c7a86adddd3543435254d6d9
+r
+Bsrc/test/java/integration/xmpp/LoggingXMPPFailureReporterTest.java,2\4\24c82cd226670413d944ba90d8972047873d6087
+j
+:src/main/java/auctionsniper/xmpp/XMPPAuctionException.java,4\a\4a6d91f69208e6782dd868621ab504f24fcc9390

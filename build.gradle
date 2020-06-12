@@ -18,6 +18,8 @@ dependencies {
     testCompile 'org.hamcrest:hamcrest:2.2'
     testCompile 'org.junit.jupiter:junit-jupiter:5.7.0-M1'
     testCompile 'org.mockito:mockito-core:3.1.0'
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation group: 'commons-io', name: 'commons-io', version: '2.7'
     // https://mvnrepository.com/artifact/jivesoftware/smack
     compile group: 'jivesoftware', name: 'smack', version: '3.1.0'
     compile group: 'jivesoftware', name: 'smackx', version: '3.1.0'

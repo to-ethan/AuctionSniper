@@ -17,6 +17,10 @@ public class SniperSnapshot {
         this.state = sniperState;
     }
 
+    public static SniperSnapshot joining(String itemId) {
+        return new SniperSnapshot(itemId, 0,0, JOINING);
+    }
+
     public SniperSnapshot bidding(int newLastPrice, int newLastBid) {
         return new SniperSnapshot(itemId, newLastPrice, newLastBid, BIDDING);
     }
@@ -29,12 +33,12 @@ public class SniperSnapshot {
         return new SniperSnapshot(itemId, newLastPrice, lastBid, WINNING);
     }
 
-    public SniperSnapshot closed() {
-        return new SniperSnapshot(itemId, lastPrice, lastBid, state.whenAuctionClosed());
+    public SniperSnapshot failed() {
+        return new SniperSnapshot(itemId, 0,0, FAILED);
     }
 
-    public static SniperSnapshot joining(String itemId) {
-        return new SniperSnapshot(itemId, 0,0, JOINING);
+    public SniperSnapshot closed() {
+        return new SniperSnapshot(itemId, lastPrice, lastBid, state.whenAuctionClosed());
     }
 
     @Override
