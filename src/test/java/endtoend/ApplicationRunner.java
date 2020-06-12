@@ -81,6 +81,13 @@ public class ApplicationRunner {
         driver.showSniperStatus(auction.getItemId(), lastPrice, lastPrice, SnipersTableModel.textFor(WON));
     }
 
+    public void showSniperHasFailed(FakeAuctionServer auction) {
+        driver.showSniperStatus(auction.getItemId(), 0, 0, SnipersTableModel.textFor(FAILED));
+    }
+
+    public void reportsInvalidMessage(FakeAuctionServer auction, String brokenMessage) {
+    }
+
     public void stop() {
         if (driver != null) {
             driver.dispose();

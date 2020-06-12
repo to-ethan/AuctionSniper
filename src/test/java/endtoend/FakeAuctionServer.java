@@ -67,6 +67,10 @@ public class FakeAuctionServer {
         currentChat.sendMessage("SOLVersion: 1.1; Event: CLOSE;");
     }
 
+    public void sendInvalidMessageContaining(String brokenMessage) throws XMPPException {
+        currentChat.sendMessage(brokenMessage);
+    }
+
     public void stop() {
         connection.disconnect();
     }
