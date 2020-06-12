@@ -11,6 +11,10 @@ public class Item {
         this.stopPrice = stopPrice;
     }
 
+    public boolean allowsBid(int bid) {
+        return bid <= stopPrice;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
