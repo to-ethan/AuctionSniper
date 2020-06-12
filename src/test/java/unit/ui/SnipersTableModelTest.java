@@ -1,6 +1,7 @@
 package unit.ui;
 
 import auctionsniper.AuctionSniper;
+import auctionsniper.Item;
 import auctionsniper.SniperSnapshot;
 import auctionsniper.ui.Column;
 import auctionsniper.ui.SnipersTableModel;
@@ -18,9 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class SnipersTableModelTest {
+    private final String ITEM_ID = "item 0";
     private TableModelListener listener = mock(TableModelListener.class);
     private final SnipersTableModel model = new SnipersTableModel();
-    private final AuctionSniper sniper = new AuctionSniper("item 0", null);
+    private final AuctionSniper sniper = new AuctionSniper(new Item(ITEM_ID, 123), null);
 
     @BeforeEach
     public void attachModelListener() {
@@ -64,7 +66,7 @@ public class SnipersTableModelTest {
 
     @Test public void
     holdsSnipersInAdditionOrder() {
-        AuctionSniper sniper2 = new AuctionSniper("item 1", null);
+        AuctionSniper sniper2 = new AuctionSniper(new Item("item 1", 345), null);
         model.sniperAdded(sniper);
         model.sniperAdded(sniper2);
         assertEquals("item 0", cellValue(0, Column.ITEM_IDENTIFIER));

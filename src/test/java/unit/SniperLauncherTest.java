@@ -15,13 +15,13 @@ public class SniperLauncherTest {
 
     @Test
     public void addsNewSniperToCollectorThenJoinsAuction() {
-        final String itemId = "item 123";
-        when(auctionHouse.auctionFor(itemId)).thenReturn(auction);
+        final Item item = new Item("item 123", 456);
+        when(auctionHouse.auctionFor(item)).thenReturn(auction);
         InOrder orderVerifier = inOrder(auction, collector, auction);
 
-        launcher.joinAuction(itemId);
+        launcher.joinAuction(item);
 
-        // TODO: implement with(sniperForItem(itemId)) instead of any(AuctionSniper.class)
+        // TODO: implement with(sniperForItem(item)) instead of any(AuctionSniper.class)
         orderVerifier.verify(auction).addAuctionEventListener(any(AuctionSniper.class));
         orderVerifier.verify(collector).addSniper(any(AuctionSniper.class));
     }

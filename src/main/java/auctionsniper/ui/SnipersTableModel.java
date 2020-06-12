@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 public class SnipersTableModel extends AbstractTableModel implements SniperListener, PortfolioListener {
-    private final static String[] STATUS_TEXT = {"Joining", "Bidding", "Winning", "Lost", "Won"};
+    private final static String[] STATUS_TEXT = {"Joining", "Bidding", "Losing", "Winning", "Lost", "Won"};
     private ArrayList<SniperSnapshot> snapshots = new ArrayList<SniperSnapshot>();
 
     @Override

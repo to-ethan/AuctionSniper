@@ -57,11 +57,15 @@ h
 0src/main/java/auctionsniper/SniperCollector.java,d\d\dd316bb4cc7a8367b6b9c8054e4f235d84dacad1
 Z
 *src/test/java/unit/SniperLauncherTest.java,8\4\846b9bd99a49c3efcbdc43248980ad316b33c917
-Z
-*src/test/java/unit/SniperListenerStub.java,b\3\b333f88ede01b027b71c6778e5bb3f729f1370ba
 a
 1src/main/java/auctionsniper/xmpp/XMPPAuction.java,4\b\4b4da94d4e811b5171dea724d57777be94cc890b
 f
 6src/main/java/auctionsniper/xmpp/XMPPAuctionHouse.java,4\0\40b91cd777094b72d03c6ab1f7535854170ea9b5
 _
 /src/main/java/auctionsniper/SniperLauncher.java,7\e\7e422e09b7dad2048fe14335cf2ed6556fc89542
+\
+,src/main/java/auctionsniper/util/Defect.java,0\1\01eb97e983a866803b079f198bb81ec280f81f28
+b
+2src/main/java/auctionsniper/PortfolioListener.java,4\d\4d54caae2f402f46b057c076c976c83731eec0a8
+`
+0src/main/java/auctionsniper/SniperPortfolio.java,5\0\50511c6acdf4835177795b4cd5f2bf755db171c1

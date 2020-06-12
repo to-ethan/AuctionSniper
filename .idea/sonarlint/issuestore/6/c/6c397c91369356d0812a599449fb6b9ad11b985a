@@ -1,5 +1,5 @@
 
-b
-java:S1124+"EReorder the modifiers to comply with the Java Language Specification.(„†¼Á8Û’’¼¨.
 ‘
 java:S1845!"tRename field "name" to prevent any misunderstanding/clash with method "name" defined in superclass "java.lang.Enum".(³Êøü8æ˜ü¼¨.
+b
+java:S1124+"EReorder the modifiers to comply with the Java Language Specification.(„†¼Á8Û’’¼¨.

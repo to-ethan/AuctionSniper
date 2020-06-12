@@ -12,10 +12,11 @@ public class AuctionSniperTest {
     private final Auction auction = mock(Auction.class);
     private final SniperListener sniperListener = mock(SniperListener.class);
     private AuctionSniper sniper;
+    private final Item item = new Item(ITEM_ID, 1234);
 
     @BeforeEach
     public void initializeSniper() {
-        sniper = new AuctionSniper(ITEM_ID, auction);
+        sniper = new AuctionSniper(item, auction);
         sniper.addSniperListener(sniperListener);
     }
 

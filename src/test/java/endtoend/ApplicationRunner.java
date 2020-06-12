@@ -24,6 +24,14 @@ public class ApplicationRunner {
         }
     }
 
+    public void startBiddingWithStopPrice(FakeAuctionServer auction, int stopPrice) {
+        startSniper();
+
+        final String itemId = auction.getItemId();
+        driver.startBiddingFor(itemId, stopPrice);
+        driver.showSniperStatus(itemId, 0, 0, textFor(SniperState.JOINING));
+    }
+
     private void startSniper() {
         Thread thread = new Thread("Test Application") {
             @Override
@@ -55,6 +63,10 @@ public class ApplicationRunner {
 
     public void hasShownSniperIsBidding(FakeAuctionServer auction, int lastPrice, int lastBid) {
         driver.showSniperStatus(auction.getItemId(), lastPrice, lastBid, SnipersTableModel.textFor(BIDDING));
+    }
+
+    public void hasShownSniperIsLosing(FakeAuctionServer auction, int lastPrice, int lastBid) {
+        driver.showSniperStatus(auction.getItemId(), lastPrice, lastBid, SnipersTableModel.textFor(LOSING));
     }
 
     public void hasShownSniperIsWinning(FakeAuctionServer auction, int winningBid) {
