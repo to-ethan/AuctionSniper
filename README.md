@@ -1,5 +1,5 @@
 # AuctionSniper
-This is a follow-along Java implementation of the Auction Sniper (using Mockito) described in the book 
+This is an alternative Java implementation of the Auction Sniper (using Mockito) described in the book 
 [Growing Object Oriented Software Guided by Tests](http://growing-object-oriented-software.com).
 
 ## Setup
